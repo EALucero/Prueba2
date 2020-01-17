@@ -134,7 +134,8 @@ span {
 }
 
 table {
-  margin: 50px 0px;
+  margin: 20px 0px;
+  width: 80%;
 }
 
 h1 {
@@ -176,6 +177,16 @@ h4, h5 {
   height: auto;
 }
 
+h6 {
+  position: relative;
+  text-align: left;
+  left: 2vh;
+  margin: 25px 0px;
+  width: 25vw;
+  font-size: 12px;
+  font-family: bold;
+}
+
 li {
   position: relative;
   text-align: left;
@@ -183,4 +194,35 @@ li {
   left: 2vw;
   width: 60vw;
   height: auto;
+}
+
+fieldset {
+  background: #E6E6FA;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0px;
+  width: 70vw;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+}
+
+legend {
+  text-align: center;
+  width: 13%
+}
+
+.medium {
+  width: 36%;
+}
+
+.large {
+  width: 85.45%;
 }
