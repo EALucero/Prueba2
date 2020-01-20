@@ -1,0 +1,96 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+  background-color: lightgreen;
+}
+
+header {
+ 	background: black;
+  background-size: cover;
+  width: auto;
+  height: 50px;
+}
+
+nav {
+	background-color: black;
+	text-align: right;
+	padding-right: 20px;
+}
+
+#logo{
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 50px;
+}
+
+div {
+	background-image: url('images/design2_image1.jpg');
+	background-size: cover;
+	width: auto;
+	height: 400px;
+	margin: 0px 10px;
+}
+
+
+#button{
+	position: relative;
+	top: 10px;
+	background-color: orange;
+	border: 1px solid red;
+	margin-right: 5px;
+}
+
+#button:hover{
+	background-color: lightblue;
+	cursor:pointer;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+article{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  text-align: left;
+  height: 350px;
+}
+
+span{
+	position: relative;
+	margin-left: 10px;
+}
+
+h1{
+	float: left;
+	font: bold 50px sans-serif;
+	text-align: left;
+	color: lightblue;
+	position: relative;
+	left: 10px;
+}
+
+h2{
+	text-align: center;
+	background-color: red;
+	position: relative;
+	width: 90%;
+	margin: 20px 50px;
+}
+
+h3, h4, h5 {
+  position: relative;
+	top: 50px;
+  text-align: left;
+  margin-left: 150px;
+  height: 30px;
+}
