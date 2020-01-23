@@ -212,44 +212,32 @@ li {
 
 fieldset {
   background: #E6E6FA;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 1px;
+
+
   width: 74vw;
 }
 
 label {
-  /*
-  display: flex;
-  flex-direction: row;*/
-  justify-content: space-between;
-  align-items: center;
-  margin: 2px 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 100%;
+  margin-left: 10px;
+  width: 73vw;
 }
 
-/*
-label {
-  text-align: center;
-  width: 18%
-}*/
-
 .short {
-  margin-left: 2vw;
+  margin: 0px 4px;
 }
 
 .medium {
-  width: 37.5%;
+  width: 31%;
+  margin: 0px 12px;
 }
 
 .large {
-  width: 87.7%;
+  width: 66%;
+  margin: 0px 12px;
 }
 
 .final {
-  width: 31.2%;
-  height: 3vh;
+  width: 31%;
+  height: 4vh;
+  margin: 0px 12px;
 }

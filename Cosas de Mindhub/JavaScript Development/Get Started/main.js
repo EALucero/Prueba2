@@ -55,3 +55,31 @@ console.log("+++ Ej.4 +++");
 console.log(Math.max.apply(null, ages));
 
 console.log("+++ Ej.5 +++");
+
+var array = [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100];
+var index = 1;
+
+array[array.length];
+console.log(array[index]);
+
+console.log("+++ Ej.6 +++");
+
+var array = [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100];
+index = [];
+
+for (i = 0; i < array.length; i++) {
+  array[i]
+
+  if (index.indexOf(array[i]) == -1) {
+    index.push(array[i]);
+
+  }else {
+    console.log(array[i]);
+  }
+}
+
+console.log("+++ Ej.7 +++");
+
+myColor = ["Red", "Green", "White", "Black"];
+
+console.log(myColor.toString()+".");
