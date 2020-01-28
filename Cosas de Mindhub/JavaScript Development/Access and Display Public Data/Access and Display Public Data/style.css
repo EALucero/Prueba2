@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-size: cover;
+  color: gray;
+  font: bold 14px arial;
+  width: cover;
+  height: auto;
+  border: 2px solid #999999;
+}
+
+nav {
+  background-color: lightgray;
+  margin: 40px 30px;
+
+}
+
+h1 {
+  font: bold 35px monserrat;
+}
