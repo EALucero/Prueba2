@@ -2,11 +2,12 @@
 <html lang="en">
     <head>
       <meta charset="utf-8">
-      <title></title>
-      <link rel="stylesheet" href="style.cst">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Senate Info</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-      <nav>
+      <nav class="navbar navbar-default">
         <div>
           <div>
               <a href="#">TGIF</a>
@@ -14,10 +15,10 @@
             <ul >
               <li><a href="index.html">Home</a></li>
               <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="senate-data.html">Senate</a></li>
-                  <li><a href="house-data.html">House</a></li>
+                <a href="#" data-toggle="collapse" data-target="#demo">Congress 113</a>
+                <ul>
+                  <li><a href="senate-data.html" class="collapse">Senate</a></li>
+                  <li><a href="house-data.html" class="collapse">House</a></li>
                 </ul>
               </li>
             </ul>
@@ -29,24 +30,65 @@
         </header>
         <!--Table container-->
         <main>
-          <div>
+          <div class="container">
             <h2>Senators</h2>
             <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
-          </div>
-            <script src="pro-congress-113-senate.js"></script>
-            <script>document.getElementById("senate-data").innerHTML = JSON.stringify(data, null, 2);</script>
-            <table id="senate-data">
+
+            <table class="table">
               <thead>
                 <tr>
-                  <th></th>
+                  <th>Name</th>
+                  <th>Party</th>
+                  <th>State</th>
+                  <th>Years in office</th>
+                  <th>Porcentage of votes</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                </tr>
+              <tbody id="senate-data">
               </tbody>
             </table>
+          </div>
         </main>
+        <script src="pro-congress-113-senate.js"></script>
+
+        <script type="text/javascript">
+        const members = data.results[0].members
+
+        const tbody = document.querySelector("tbody")
+
+        members.forEach(member => {
+        let row = tbody.insertRow(-1)
+
+          if (member.middle_name == null) {
+              if (member.url == "") {
+                row.innerHTML = `<td>${member.first_name} ${member.last_name}</td>
+                <td>${member.party}</td>
+                <td>${member.state}</td>
+                <td>${member.seniority}</td>
+                <td>${member.votes_with_party_pct+'%'}</td>`
+              }else {
+                row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.last_name}</td>
+                <td>${member.party}</td>
+                <td>${member.state}</td>
+                <td>${member.seniority}</td>
+                <td>${member.votes_with_party_pct+'%'}</td>`
+              }
+          }else {
+            if (member.url == "") {
+              row.innerHTML = `<td>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+              <td>${member.party}</td>
+              <td>${member.state}</td>
+              <td>${member.seniority}</td>
+              <td>${member.votes_with_party_pct+'%'}</td>`
+            }else {
+              row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+              <td>${member.party}</td>
+              <td>${member.state}</td>
+              <td>${member.seniority}</td>
+              <td>${member.votes_with_party_pct+'%'}</td>`
+            }
+          }
+        })
+        </script>
     </body>
 </html>

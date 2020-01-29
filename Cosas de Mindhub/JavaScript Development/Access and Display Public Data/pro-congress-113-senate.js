@@ -5054,3 +5054,20 @@ var data = {
       }
    ]
 }
+
+
+
+/*
+let rows = {members: ['first_name', 'middles_name', 'last_name']; ['party']; ['seniority']; ['vote_with_party_pct'];}
+
+
+
+
+
+function createRow(){
+  let names = "";
+  for (var i = 0; i < members.length; i++) {
+    members[i]
+    names += '<td>' + (i+1) + '. name:' + members[i].members + ', city' + members[i]. + '</td>'
+  }
+}*/

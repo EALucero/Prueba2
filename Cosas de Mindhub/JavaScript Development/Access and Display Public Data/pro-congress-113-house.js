@@ -21614,18 +21614,22 @@ var data = {
       }
    ]
 }
+/*
+var rows = {members: ['first_name', 'middles_name', 'last_name'], ['party'], ['seniority'], ['vote_with_party_pct']};
 
-mdmbers = [];
+
 
 for (i = 0; i < members.length; i++) {
   members[i]
 }
 
 members.toString();
-console.los(member[i]);
+
+console.los(members[i]);
 
 data.result[0].members[i].name
 party
 estate
 seniority
 percentage of votes + "%"
+*/

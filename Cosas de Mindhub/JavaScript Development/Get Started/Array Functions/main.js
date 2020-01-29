@@ -29,15 +29,14 @@ while (i < ages.length) {
 
 console.log("-- pares --");
 
-var events = [0];
+i = 0;
 
 while (i < ages.length) {
 
-
   if (ages[i] % 2 === 0) {
-    console.log(events);
-    i++;
+    console.log(ages[i]);
   }
+  i++;
 }
 
 console.log("-- edades for --");
@@ -48,11 +47,31 @@ for (i = 0; i < ages.length; i++) {
 
 console.log("+++ Ej.3 +++");
 
-console.log(Math.min.apply(null, ages));
+function minNumber(ages) {
+  let min = "";
+  for (i = 0; i < ages.length; i++) {
+    if (min.length < ages[i].length) {
+      min = ages[i];
+    }
+  }
+  return min;
+}
+
+console.log(minNumber(ages));
 
 console.log("+++ Ej.4 +++");
 
-console.log(Math.max.apply(null, ages));
+function maxNumber(ages) {
+  let max = "";
+  for (i = 0; i < ages.length; i++) {
+    if (ages[i] > max) {
+      max = ages[i];
+    }
+  }
+  return max;
+}
+
+console.log(maxNumber(ages));
 
 console.log("+++ Ej.5 +++");
 
@@ -64,22 +83,28 @@ console.log(array[index]);
 
 console.log("+++ Ej.6 +++");
 
-var array = [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100];
 index = [];
 
-for (i = 0; i < array.length; i++) {
+function findDuplicates(array) {
+  for (i = 0; i < array.length; i++) {
   array[i]
 
-  if (index.indexOf(array[i]) == -1) {
+    if (index.indexOf(array[i]) == -1) {
     index.push(array[i]);
-
-  }else {
+    }else {
+    return index
     console.log(array[i]);
+    }
   }
 }
+
+console.log(array[i]);
 
 console.log("+++ Ej.7 +++");
 
 myColor = ["Red", "Green", "White", "Black"];
 
-console.log(myColor.toString()+".");
+function string(mycolor) {
+  myColor.toString()
+  }
+  console.log(myColor+".");
