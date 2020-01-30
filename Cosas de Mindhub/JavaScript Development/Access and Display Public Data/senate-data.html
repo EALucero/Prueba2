@@ -7,35 +7,40 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-      <nav class="navbar navbar-default">
-        <div>
-          <div>
-              <a href="#">TGIF</a>
+      <nav >
+        <div class="d-flex flex-wrap"> <!-- if - filter -forEach -->
+          <div class="col-2 bg-danger text-white text-center">
+            <img src="logo.png" height="50px">
+            <a>TGIF</a>
           </div>
-            <ul >
-              <li><a href="index.html">Home</a></li>
-              <li >
-                <a href="#" data-toggle="collapse" data-target="#demo">Congress 113</a>
-                <ul>
-                  <li><a href="senate-data.html" class="collapse">Senate</a></li>
-                  <li><a href="house-data.html" class="collapse">House</a></li>
+          <div class="col-10 container bg-secondary text-white">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Congress 113</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item">
+                    <a href="senate-data.html" class="nav-link">Senate</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="house-data.html" class="nav-link">House</a>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
-        </nav>
-        <header>
-            <div>
-            </div>
-        </header>
+        </div>
+      </nav>
         <!--Table container-->
-        <main>
+        <main class="bg-light">
           <div class="container">
             <h2>Senators</h2>
             <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
 
             <table class="table">
-              <thead>
+              <thead class="bg-info">
                 <tr>
                   <th>Name</th>
                   <th>Party</th>
@@ -44,7 +49,7 @@
                   <th>Porcentage of votes</th>
                 </tr>
               </thead>
-              <tbody id="senate-data">
+              <tbody id="senate-data" class="bg-white">
               </tbody>
             </table>
           </div>
@@ -88,7 +93,7 @@
               <td>${member.votes_with_party_pct+'%'}</td>`
             }
           }
-        })
+        }) //seguro que esto se podría hacer con menos lineas.
         </script>
     </body>
 </html>

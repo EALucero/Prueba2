@@ -2,47 +2,98 @@
 <html lang="en">
     <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>House Info</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-      <nav>
-        <div>
-          <div>
-            <a href="#">TGIF</a>
+      <nav >
+        <div class="d-flex flex-wrap"> <!-- if - filter -forEach -->
+          <div class="col-2 bg-danger text-white text-center">
+            <img src="logo.png" height="50px">
+            <a>TGIF</a>
           </div>
-            <ul >
-              <li><a href="index.html">Home</a></li>
-              <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="senate-data.html">Senate</a></li>
-                  <li><a href="house-data.html">House</a></li>
+          <div class="col-10 container bg-secondary text-white">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Congress 113</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item">
+                    <a href="senate-data.html" class="nav-link">Senate</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="house-data.html" class="nav-link">House</a>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
             <!--Table container-->
-        <div>
+        <main class="bg-light">
+          <div class="container">
             <h2>Congressmen</h2>
             <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
             <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+            <table class="table">
+              <thead class="bg-info">
+                <tr>
+                  <th>Name</th>
+                  <th>Party</th>
+                  <th>State</th>
+                  <th>Years in office</th>
+                  <th>Porcentage of votes</th>
+                </tr>
+              </thead>
+              <tbody id="house-data" class="bg-white">
+              </tbody>
+            </table>
           </div>
-          <script src="pro-congress-113-house.js"></script>
-          <script>document.getElementById("house-data").innerHTML = data.results[0].members;</script>
-          <table id="house-data">
-            <thead>
-              <tr>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
         </main>
+        <script src="pro-congress-113-house.js"></script>
+
+        <script type="text/javascript">
+        const members = data.results[0].members
+
+        const tbody = document.querySelector("tbody")
+
+        members.forEach(member => {
+        let row = tbody.insertRow(-1)
+
+          if (member.middle_name == null) {
+              if (member.url == "") {
+                row.innerHTML = `<td>${member.first_name} ${member.last_name}</td>
+                <td>${member.party}</td>
+                <td>${member.state}</td>
+                <td>${member.seniority}</td>
+                <td>${member.votes_with_party_pct+'%'}</td>`
+              }else {
+                row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.last_name}</td>
+                <td>${member.party}</td>
+                <td>${member.state}</td>
+                <td>${member.seniority}</td>
+                <td>${member.votes_with_party_pct+'%'}</td>`
+              }
+          }else {
+            if (member.url == "") {
+              row.innerHTML = `<td>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+              <td>${member.party}</td>
+              <td>${member.state}</td>
+              <td>${member.seniority}</td>
+              <td>${member.votes_with_party_pct+'%'}</td>`
+            }else {
+              row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+              <td>${member.party}</td>
+              <td>${member.state}</td>
+              <td>${member.seniority}</td>
+              <td>${member.votes_with_party_pct+'%'}</td>`
+            }
+          }
+        }) //seguro que esto se podría hacer con menos lineas.
+        </script>
     </body>
 </html>

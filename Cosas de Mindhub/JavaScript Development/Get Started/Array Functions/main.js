@@ -83,28 +83,24 @@ console.log(array[index]);
 
 console.log("+++ Ej.6 +++");
 
-index = [];
-
-function findDuplicates(array) {
-  for (i = 0; i < array.length; i++) {
-  array[i]
-
-    if (index.indexOf(array[i]) == -1) {
-    index.push(array[i]);
-    }else {
-    return index
-    console.log(array[i]);
+const findDuplicates = (array) => {
+  let sorted_array = array.slice().sort();
+  let results = [];
+  for (let i = 0; i < sorted_array.length - 1; i++) {
+    if (sorted_array[i + 1] == sorted_array[i]) {
+      results.push(sorted_array[i]);
     }
   }
+  return results;
 }
 
-console.log(array[i]);
+let duplicatedArray = [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100];
+console.log(findDuplicates(duplicatedArray));
+
+//Acá funcionaba con un for pero me dijeron que use function, probé de mil maneras y no salía, así que puse flechita.
 
 console.log("+++ Ej.7 +++");
 
-myColor = ["Red", "Green", "White", "Black"];
+const myColor = ["Red", "Green", "White", "Black"];
 
-function string(mycolor) {
-  myColor.toString()
-  }
-  console.log(myColor+".");
+console.log(myColor.toString()+".");
