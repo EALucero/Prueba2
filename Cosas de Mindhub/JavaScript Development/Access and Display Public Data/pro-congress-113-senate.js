@@ -5055,19 +5055,32 @@ var data = {
    ]
 }
 
-
-
-/*
-let rows = {members: ['first_name', 'middles_name', 'last_name']; ['party']; ['seniority']; ['vote_with_party_pct'];}
-
-
-
-
-
-function createRow(){
-  let names = "";
-  for (var i = 0; i < members.length; i++) {
-    members[i]
-    names += '<td>' + (i+1) + '. name:' + members[i].members + ', city' + members[i]. + '</td>'
+if (member.middle_name == null) {
+    if (member.url == "") {
+      row.innerHTML = `<td>${member.first_name} ${member.last_name}</td>
+      <td>${member.party}</td>
+      <td>${member.state}</td>
+      <td>${member.seniority}</td>
+      <td>${member.votes_with_party_pct+'%'}</td>`
+    }else {
+      row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.last_name}</td>
+      <td>${member.party}</td>
+      <td>${member.state}</td>
+      <td>${member.seniority}</td>
+      <td>${member.votes_with_party_pct+'%'}</td>`
+    }
+}else {
+  if (member.url == "") {
+    row.innerHTML = `<td>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+    <td>${member.party}</td>
+    <td>${member.state}</td>
+    <td>${member.seniority}</td>
+    <td>${member.votes_with_party_pct+'%'}</td>`
+  }else {
+    row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.middle_name} ${member.last_name}</td>
+    <td>${member.party}</td>
+    <td>${member.state}</td>
+    <td>${member.seniority}</td>
+    <td>${member.votes_with_party_pct+'%'}</td>`
   }
-}*/
+}
