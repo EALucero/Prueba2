@@ -14,20 +14,16 @@
             <a>TGIF</a>
           </div>
           <div class="col-10 container bg-secondary text-white">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-pills">
               <li class="nav-item">
-                <a href="index.html" class="nav-link active">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Congress 113</a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-item">
-                    <a href="senate-data.html" class="nav-link">Senate</a>
-                  </li>
-                  <li class="dropdown-item">
-                    <a href="house-data.html" class="nav-link">House</a>
-                  </li>
-                </ul>
+                <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                <li class="dropdown-menu">
+                  <li class="dropdown-item"><a class="nav-link" href="senate-data.html">Senate</a></li>
+                  <li class="dropdown-item"><a class="nav-link" href="house-data.html">House</a></li>
+                </li>
               </li>
             </ul>
           </div>
@@ -55,45 +51,6 @@
           </div>
         </main>
         <script src="pro-congress-113-senate.js"></script>
-
-        <script type="text/javascript">
-        const members = data.results[0].members
-
-        const tbody = document.querySelector("tbody")
-
-        members.forEach(member => {
-        let row = tbody.insertRow(-1)
-
-          if (member.middle_name == null) {
-              if (member.url == "") {
-                row.innerHTML = `<td>${member.first_name} ${member.last_name}</td>
-                <td>${member.party}</td>
-                <td>${member.state}</td>
-                <td>${member.seniority}</td>
-                <td>${member.votes_with_party_pct+'%'}</td>`
-              }else {
-                row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.last_name}</td>
-                <td>${member.party}</td>
-                <td>${member.state}</td>
-                <td>${member.seniority}</td>
-                <td>${member.votes_with_party_pct+'%'}</td>`
-              }
-          }else {
-            if (member.url == "") {
-              row.innerHTML = `<td>${member.first_name} ${member.middle_name} ${member.last_name}</td>
-              <td>${member.party}</td>
-              <td>${member.state}</td>
-              <td>${member.seniority}</td>
-              <td>${member.votes_with_party_pct+'%'}</td>`
-            }else {
-              row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.middle_name} ${member.last_name}</td>
-              <td>${member.party}</td>
-              <td>${member.state}</td>
-              <td>${member.seniority}</td>
-              <td>${member.votes_with_party_pct+'%'}</td>`
-            }
-          }
-        }) //seguro que esto se podría hacer con menos lineas.
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
