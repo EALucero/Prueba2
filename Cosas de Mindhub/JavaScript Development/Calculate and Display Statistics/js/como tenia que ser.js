@@ -1,3 +1,5 @@
+const members = data.results[0].members
+const tbody = document.querySelector("tbody")
 
 function createDropdown(){
 let states = []
