@@ -1,5 +1,5 @@
-const members = data.results[0].members
-const tbody = document.querySelector("tbody")
+let tbody = document.querySelector("tbody")
+let members = data.results[0].members
 
 function checkbox(){
   document.getElementById("table-data").innerHTML = ""
@@ -11,7 +11,7 @@ function checkbox(){
 //party filter
     for (let i = 0; i <party.length; i++) {
       if (party[i].checked) {
-        dFilter = members.filter(e => e.party == party[i].value)
+        dFilter = members.filter(e => e.party == party[i].value);
 
         members.filter(e => e.party == party[i].value && (e.state == state || state == "all")). forEach(member => {
         let row = tbody.insertRow(-1);
