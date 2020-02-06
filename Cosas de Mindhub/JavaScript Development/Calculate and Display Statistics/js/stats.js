@@ -1,5 +1,5 @@
-const tbody1 = document.querySelector("sag")
-const members = data.results[0].members//.filter(e => e.total_votes !=0)
+  const tbody1 = document.querySelector("sag")
+  const members = data.results[0].members//.filter(e => e.total_votes !=0)
 
     let nDem = 0;
     let nRep = 0;
@@ -15,6 +15,8 @@ const members = data.results[0].members//.filter(e => e.total_votes !=0)
 
     members.forEach(e => {
 
+  //    if (e.party == "D" || e.party == "R" || e.party == "I")
+
       if (e.party == "D") {
         nDem++
         vDem += e.votes_with_party_pct;
@@ -29,23 +31,26 @@ const members = data.results[0].members//.filter(e => e.total_votes !=0)
     let tpDem = parseFloat(vDem/nDem).toFixed(2);
     let tpRep = parseFloat(vRep/nRep).toFixed(2);
     let tpInd = parseFloat(vInd/nInd).toFixed(2);
-//    let tptotal = parseFloat((tpDem+tpRep+tpInd)/total).tofixed(2);
+    let tptotal = parseFloat((vDem+vRep+vInd)/total).toFixed(2);
 
-
-
-
-    sag.innerHTML = `<tr><td>Democrats</td><td>${nDem}</td><td>${tpDem+"%"}</td></tr>
-    <tr><td>Republicans</td><td>${nRep}</td><td>${tpRep+"%"}</td></tr>
-    <tr><td>Independents</td><td>${nInd}</td><td>${tpInd+"%"}</td></tr>
+    sag.innerHTML = `<tr><td>Democrats</td><td>${nDem}</td><td>${tpDem}</td></tr>
+    <tr><td>Republicans</td><td>${nRep}</td><td>${tpRep}</td></tr>
+    <tr><td>Independents</td><td>${nInd}</td><td>${tpInd}</td></tr>
     <tr><td>Total</td><td>${total}</td><td>${tptotal}</td></tr>`
-
-    if (tpIdem == 0) {
-      tpInd = ""
-    }
     })
 /*
 //Atendance
-const tbody2 = document.querySelector("llbp")
+
+
+const tbody2 = document.getElementById("llbp")
+
+lLoy = 0;
+
+
+ lLoy.filter = members.sort(function(a,b) {a.votes_with_party_pct - b.votes_against_party_pct}
+
+
+})
 
 let lLn = (members.length*0.1).toFixed(1);
 let sArray = members.slice().sort(function (a,b) {return (a-b)}).slice(0, lLn)
