@@ -1,5 +1,5 @@
   const tbody1 = document.querySelector("sag")
-  const members = data.results[0].members//.filter(e => e.total_votes !=0)
+  const members = data.results[0].members
 
     let nDem = 0;
     let nRep = 0;
@@ -14,8 +14,6 @@
     let total = data.results[0].num_results;
 
     members.forEach(e => {
-
-  //    if (e.party == "D" || e.party == "R" || e.party == "I")
 
       if (e.party == "D") {
         nDem++
@@ -33,65 +31,76 @@
     let tpInd = parseFloat(vInd/nInd).toFixed(2);
     let tptotal = parseFloat((vDem+vRep+vInd)/total).toFixed(2);
 
-    sag.innerHTML = `<tr><td>Democrats</td><td>${nDem}</td><td>${tpDem}</td></tr>
-    <tr><td>Republicans</td><td>${nRep}</td><td>${tpRep}</td></tr>
-    <tr><td>Independents</td><td>${nInd}</td><td>${tpInd}</td></tr>
-    <tr><td>Total</td><td>${total}</td><td>${tptotal}</td></tr>`
+    sag.innerHTML = `<tr><td>Democrats</td><td>${nDem}</td><td>${tpDem+"%"}</td></tr>
+    <tr><td>Republicans</td><td>${nRep}</td><td>${tpRep+"%"}</td></tr>
+    <tr><td>Independents</td><td>${nInd}</td><td>${tpInd+"%"}</td></tr>
+    <tr><td>Total</td><td>${total}</td><td>${tptotal+"%"}</td></tr>`
     })
-/*
-//Atendance
 
 
-const tbody2 = document.getElementById("llbp")
+    let lLoyal = [];
+    let mLoyal = [];
+    let lAtten =[];
+    let mAtten = [];
 
-lLoy = 0;
+    members.sort((a, b) => a.votes_with_party_pct - b.votes_with_party_pct)
 
+      for (i = 0; i < members.length*0.1 || members[i-1].votes_with_party_pct == members[i].votes_with_party_pct; i++){
+	       lLoyal.push(members[i])
+       }
 
- lLoy.filter = members.sort(function(a,b) {a.votes_with_party_pct - b.votes_against_party_pct}
+    members.sort((a, b) => b.votes_with_party_pct - a.votes_with_party_pct)
 
+      for (i = 0; i < members.length*0.1 || members[i-1].votes_with_party_pct == members[i].votes_with_party_pct; i++){
+	       mLoyal.push(members[i])
+       }
 
-})
+    members.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
 
-let lLn = (members.length*0.1).toFixed(1);
-let sArray = members.slice().sort(function (a,b) {return (a-b)}).slice(0, lLn)
+      for (i = 0; i < members.length*0.1 || members[i-1].missed_votes_pct == members[i].missed_votes_pct; i++){
+	       lAtten.push(members[i])
+       }
 
-  lLn.forEach (e => {
+    members.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct)
 
+      for (i = 0; i < members.length*0.1 || members[i-1].missed_votes_pct == members[i].missed_votes_pct; i++){
+         mAtten.push(members[i])
+        }
 
-/*for (var i = 0; i < members.length; i++) {
-  members[i]
+       if(document.getElementById("matten") != null){
+         const table2 = document.getElementById("matten")
 
-let lLoyal = members[i].votes_with_party_pct;
+         for (i = 0; i < lAtten.length; i++) {
+	          let row2 = table2.insertRow(-1);
+	           row2.innerHTML=`<td><a href="${lAtten[i].url}">${lAtten[i].first_name} ${lAtten[i].last_name}<a></td>
+             <td>${lAtten[i].missed_votes}</td>
+             <td>${lAtten[i].missed_votes_pct+"%"}</td>`
+           }
 
+         const table3 = document.getElementById("latten")
 
-let lLn = lLoyal.length;
-let sArray = lLn.sort(function (a,b) {
-  return (a-b)})
+         for (i = 0; i < mAtten.length; i++) {
+	          let row3 = table3.insertRow(-1);
+	           row3.innerHTML=`<td><a href="${mAtten[i].url}">${mAtten[i].first_name} ${mAtten[i].last_name}<a></td>
+             <td>${mAtten[i].missed_votes}</td>
+             <td>${mAtten[i].missed_votes_pct+"%"}</td>`
+           }
+         }else{
+           const table4 = document.getElementById("mloyal")
 
-let lL = sArray.length;
-let lL10 = (Math.round(sArray.length*10/100));
+           for (i = 0; i < mLoyal.length; i++) {
+	            let row4 = table4.insertRow(-1);
+	             row4.innerHTML=`<td><a href="${mLoyal[i].url}">${mLoyal[i].first_name} ${mLoyal[i].last_name}<a></td>
+               <td>${(lLoyal[i].votes_with_party_pct * mLoyal[i].total_votes/100).toFixed(0)}</td>
+               <td>${mLoyal[i].votes_with_party_pct+"%"}</td>`
+             }
 
-let lMin = sArray[lL-lL10];
-let lMax = sArray[lL-1];
+           const table5 = document.getElementById("lloyal")
 
-console.log(lMin);
-console.log(lMax);
-}
-
-mPercent: function (array, key, fArray) {
-  for (var i = 0; i < array.length; i++) {
-    array[i]
-    if (i < array.length/10) {
-      fArray.push(array[i]);
-    }else if (array[i][key] == array[i-1][key]) {
-      fArray.push(array[i]);
-    }else {
-      break
-    }
-    return fArray
-  }
-}
-*/
-
-
-//const tbody = document.querySelector("mltp")
+           for (i = 0; i < lLoyal.length; i++) {
+	            let row5 = table5.insertRow(-1);
+	             row5.innerHTML=`<td><a href="${lLoyal[i].url}">${lLoyal[i].first_name} ${lLoyal[i].last_name}<a></td>
+               <td>${(lLoyal[i].votes_with_party_pct * lLoyal[i].total_votes/100).toFixed(0)}</td>
+               <td>${lLoyal[i].votes_with_party_pct+"%"}</td>`
+             }
+           }
