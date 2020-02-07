@@ -17,13 +17,13 @@ function checkbox(){
         let row = tbody.insertRow(-1);
 
           if (member.url == "") {
-            row.innerHTML = `<td>${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
+            row.innerHTML = `<td class="text-left pl-5">${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
             <td>${member.party}</td>
             <td>${member.state}</td>
             <td>${member.seniority}</td>
             <td>${member.votes_with_party_pct+'%'}</td>`
           }else {
-            row.innerHTML = `<td><a href=${member.url}>${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
+            row.innerHTML = `<td class="text-left pl-5"><a href=${member.url}>${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
             <td>${member.party}</td>
             <td>${member.state}</td>
             <td>${member.seniority}</td>
