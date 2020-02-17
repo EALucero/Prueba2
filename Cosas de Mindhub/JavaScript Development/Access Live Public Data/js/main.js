@@ -1,50 +1,53 @@
-const table = new Vue ({
-  el: '#table',
-  data: {
-    senBers : "https://api.propublica.org/congress/v1/113/senate/members.json",
-    houBers : "https://api.propublica.org/congress/v1/113/house/members.json",
-    init : {
-      method:'GET',
-      headers:{'X-API-Key':'UWw13xqhQGs8N72PqRckDFIE8gXG6xLLSJ54MUtm'}
-    },
-    filtLiar: {states : [], select : document.getElementById("states"), members : data.result[0].members},
-    stats : {nDem : 0, nRep : 0, nInd : 0, vDem : 0, vRep : 0, vInd : 0,
-        tpDem : [], tpRep : [], tpInd : [], tpTotal : [],
-        total : data.results[0].num_results,
-        lLoyal : [], mLoyal : [], lAtten : [], mAtten : []}
-    },
+let tbody = document.querySelector("tbody")
+let members = data.results[0].members
 
-  created(){
-        fetch(data.senBers, data.init)
-          .then(function(res){
-            if(res.ok){
-              return res.json()
-            } else{
-              throw new Error(res.status)
-            }
-          })
-          .then(function(senate){
-            data = json
-            gallery(data)
-          })
-          .catch(function(error){
-            console.log(error)
-          })
+function checkbox(){
+  document.getElementById("table-data").innerHTML = ""
+  let state = document.getElementById("inputState").value
+  let party = document.getElementsByClassName("congress")
+  let select = []
+  let dFilter = []
 
-          console.log("hola")
+//party filter
+    for (let i = 0; i <party.length; i++) {
+      if (party[i].checked) {
+        dFilter = members.filter(e => e.party == party[i].value);
 
-          function gallery(json){
-            json.forEach(e => {
-              let img = new Image()
-              img.src = e.thumbnailUrl
+        members.filter(e => e.party == party[i].value && (e.state == state || state == "all")). forEach(member => {
+        let row = tbody.insertRow(-1);
 
-              let div = document.createElement('DIV')
-
-              div.appendChild(img)
-
-              document.getElementById("tbody").appendChild(div)
-            })
+          if (member.url == "") {
+            row.innerHTML = `<td class="text-left pl-5">${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
+            <td>${member.party}</td>
+            <td>${member.state}</td>
+            <td>${member.seniority}</td>
+            <td>${member.votes_with_party_pct+'%'}</td>`
+          }else {
+            row.innerHTML = `<td class="text-left pl-5"><a href=${member.url}>${member.first_name} ${member.middle_name || ""} ${member.last_name}</td>
+            <td>${member.party}</td>
+            <td>${member.state}</td>
+            <td>${member.seniority}</td>
+            <td>${member.votes_with_party_pct+'%'}</td>`
           }
-        }
+        });
+      }
 
-  })  
+//state filter
+      dFilter.forEach (e => {
+        if (select.indexOf(e.state)== (-1)) {
+          select.push(e.state)
+        }
+      });
+
+      document.getElementById("inputState").innerHTML = `<option value = "all">all</option>`
+      select.forEach (e => {document.getElementById("inputState").innerHTML += `<option value ="${e}">${e}</option>`});
+      document.getElementById("inputState").value = state
+    }
+  }
+
+//checkbox
+    document.getElementById("dem").addEventListener("click", checkbox)
+    document.getElementById("rep").addEventListener("click", checkbox)
+    document.getElementById("ind").addEventListener("click", checkbox)
+    checkbox()
+    document.getElementById("inputState").addEventListener("change", checkbox)
