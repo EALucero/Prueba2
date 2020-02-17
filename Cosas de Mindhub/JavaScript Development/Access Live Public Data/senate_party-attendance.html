@@ -67,22 +67,22 @@
                 <tr>
                   <td>{{parties[0]}}</td>
                   <td>{{nDem}}</td>
-                  <td>{{tdDem.toFixed(2)+'%'}}</td>
+                  <td>{{tpDem.toFixed(2)+'%'}}</td>
                 </tr>
                 <tr>
                   <td>{{parties[1]}}</td>
                   <td>{{nRep}}</td>
-                  <td>{{tdRep.toFixed(2)+'%'}}</td>
+                  <td>{{tpRep.toFixed(2)+'%'}}</td>
                 </tr>
                 <tr>
                   <td>{{parties[2]}}</td>
                   <td>{{nInd}}</td>
-                  <td>{{tdInd.toFixed(2)+'%'}}</td>
+                  <td>{{tpInd.toFixed(2)+'%'}}</td>
                 </tr>
                 <tr>
                   <td>Total:</td>
                   <td>{{total}}</td>
-                  <td>{{tpTotal.toFixed(2)+'%'}}</td>
+                  <td>{{ptLost.toFixed(2)+'%'}}</td>
                 </tr>
               </tbody>
             </table>
@@ -99,7 +99,12 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="lower" class="senate bg-dark text-white">
+              <tbody class="senate bg-dark text-white">
+                <tr v-for="lAtten in lAtten">
+                  <td><a target="_blank" :href="lAtten.url">{{lAtten.first_name}} {{lAtten.last_name}}</a></td>
+                  <td>{{(lAtten.votes_with_party_pct * lAtten.total_votes/100).toFixed(0)}}</td>
+                  <td>{{lAtten.votes_with_party_pct}}  %</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -113,14 +118,19 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="most" class="bg-dark text-white">
+              <tbody class="bg-dark text-white">
+                <tr v-for="mAtten in mAtten">
+                  <td><a target="_blank" :href="mAtten.url">{{mAtten.first_name}} {{mAtten.last_name}}</a></td>
+                  <td>{{(mAtten.votes_with_party_pct * mAtten.total_votes/100).toFixed(0)}}</td>
+                  <td>{{mAtten.votes_with_party_pct}}  %</td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </main>
-        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-        <script src="js/stadistics.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/stats.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
