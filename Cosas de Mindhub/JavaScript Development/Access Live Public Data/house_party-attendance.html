@@ -55,7 +55,7 @@
         <!--Table container-->
           <div class="col-4 container text-right float-right">
             <h4>House at a glance</h4>
-            <table class="table text-center" id="senate-data">
+            <table class="table text-center" id="house-data">
               <thead class="bg-info">
                 <tr>
                   <th>Party</th>
@@ -99,7 +99,12 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="lower" class="bg-dark text-white">
+              <tbody id="lAtten" class="house bg-dark text-white">
+                <tr v-for="member in lAtten">
+                  <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                  <td>{{member.missed_votes}}</td>
+                  <td>{{member.missed_votes_pct+"%"}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -113,7 +118,12 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="most" class="bg-dark text-white">
+              <tbody id="mAtten" class="house bg-dark text-white">
+                <tr v-for="member in mAtten">
+                  <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                  <td>{{member.missed_votes}}</td>
+                  <td>{{member.missed_votes_pct+"%"}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

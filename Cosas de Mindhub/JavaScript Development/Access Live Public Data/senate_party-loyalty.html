@@ -98,12 +98,17 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="lloyal" class="bg-dark text-white">
+              <tbody id="lLoyal" class="senate bg-dark text-white">
+                <tr v-for="member in lLoyal">
+                  <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                  <td>{{member.votes_with_party_pct}}</td>
+                  <td>{{member.votes_with_party_pct+"%"}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
           <div class="col-5 container float-right">
-            <h4>Most Loyal (Top 10% of Party)</h4>
+            <h4>Most Engaged (Top 10% of Attendance)</h4>
             <table class="table text-center">
               <thead class="bg-info">
                 <tr>
@@ -112,7 +117,12 @@
                   <th>% Party Votes</th>
                 </tr>
               </thead>
-              <tbody id="mloyal" class="bg-dark text-white">
+              <tbody id="mLoyal" class="senate bg-dark text-white">
+                <tr v-for="member in mLoyal">
+                  <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                  <td>{{member.votes_with_party_pct}}</td>
+                  <td>{{member.votes_with_party_pct+"%"}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

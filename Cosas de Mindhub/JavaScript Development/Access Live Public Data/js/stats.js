@@ -8,7 +8,6 @@ const app = new Vue({
 			 method:'GET',
 			 headers: {"X-Api-Key": 'UWw13xqhQGs8N72PqRckDFIE8gXG6xLLSJ54MUtm'}
 		 },
-
 	   members: [],
 	   nDem: 0,
 	   nRep: 0,
@@ -20,11 +19,10 @@ const app = new Vue({
 	   tpTotal: 0,
 	   ptLost: 0,
 	   parties: [],
-	   lAtten: [],
-     least_loyal: [],
-     most_loyal: [],
-     least_engaged: [],
-     most_engaged: [],
+	   lLoyal: [],
+     mLoyal: [],
+     lAtten: [],
+     mAtten: [],
 	   current: 'list',
 	},
 	created(){
@@ -46,7 +44,7 @@ const app = new Vue({
 			app.total = app.nDem + app.nRep + app.nInd
       app.tpTotal =	app.tpDem + app.tpRep + app.tpInd
 			app.tpInd != 0 ? app.ptLost = app.tpTotal / 3 : app.ptLost = app.tpTotal / 2
-			app.lAtten = app.votes(app.members)
+      app.votes(app.members)
 		})
 		.catch(function(error){
 			console.log(error)
@@ -71,33 +69,34 @@ const app = new Vue({
 			return sum
 		},
 		votes(array){
+
 			let lLoyal = []
 			array.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
 			lLoyal.push(array[i])
 			}
-			return lLoyal
+			this.lLoyal = lLoyal
 
       let mLoyal = []
 			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
 			mLoyal.push(array[i])
 			}
-			return mLoyal
+			this.mLoyal = mLoyal
 
       let lAtten = []
-			array.sort((a, b) => a.missed_votes_pctb - .missed_votes_pct)
+			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
 			lAtten.push(array[i])
 			}
-			return lAtten
+			this.lAtten = lAtten
 
       let mAtten = []
-			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
+			array.sort((a, b) => a.missed_votes_pctb - b.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
 			mAtten.push(array[i])
 			}
-			return mAtten
-		},
-	},
+			this.mAtten = mAtten
+		}
+	}
 })
