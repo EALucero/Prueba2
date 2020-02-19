@@ -69,32 +69,49 @@ const app = new Vue({
 			return sum
 		},
 		votes(array){
+      let count = 0
 
 			let lLoyal = []
-			array.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct)
-			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
-			lLoyal.push(array[i])
+			array.sort((a, b) => a.votes_with_party_pct - b.votes_with_party_pct)
+			for (i = 0; i < array.length*0.1 || array[i-1].votes_with_party_pct == array[i].votes_with_party_pct; i++){
+        if(array[i].votes_with_party_pct == 0.00){
+          count++
+        }else {
+         lLoyal.push(array[i])
+         }
 			}
 			this.lLoyal = lLoyal
 
       let mLoyal = []
-			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
-			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
-			mLoyal.push(array[i])
+			array.sort((a, b) => b.votes_with_party_pct - a.votes_with_party_pct)
+			for (i = 0; i < array.length*0.1 || array[i-1].votes_with_party_pct == array[i].votes_with_party_pct; i++){
+        if(array[i].votes_with_party_pct == 0.00){
+          count++
+        }else {
+         mLoyal.push(array[i])
+         }
 			}
 			this.mLoyal = mLoyal
 
       let lAtten = []
-			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
+			array.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
-			lAtten.push(array[i])
+        if(array[i].missed_votes_pct == 0.00){
+          count++
+        }else {
+         lAtten.push(array[i])
+         }
 			}
 			this.lAtten = lAtten
 
       let mAtten = []
-			array.sort((a, b) => a.missed_votes_pctb - b.missed_votes_pct)
+			array.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct)
 			for (i = 0; i < array.length*0.1 || array[i-1].missed_votes_pct == array[i].missed_votes_pct; i++){
-			mAtten.push(array[i])
+        if(array[i].missed_votes_pct == 0.00){
+          count++
+        }else {
+         mAtten.push(array[i])
+         }
 			}
 			this.mAtten = mAtten
 		}

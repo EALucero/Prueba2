@@ -101,7 +101,7 @@
               <tbody id="lLoyal" class="senate bg-dark text-white">
                 <tr v-for="member in lLoyal">
                   <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
-                  <td>{{member.votes_with_party_pct}}</td>
+                  <td>{{(member.votes_with_party_pct*member.total_votes/100).toFixed(0)}}</td>
                   <td>{{member.votes_with_party_pct+"%"}}</td>
                 </tr>
               </tbody>
@@ -120,7 +120,7 @@
               <tbody id="mLoyal" class="senate bg-dark text-white">
                 <tr v-for="member in mLoyal">
                   <td class="text-left pl-5"><a target="_blank" :href=member.url>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
-                  <td>{{member.votes_with_party_pct}}</td>
+                  <td>{{(member.votes_with_party_pct*member.total_votes/100).toFixed(0)}}</td>
                   <td>{{member.votes_with_party_pct+"%"}}</td>
                 </tr>
               </tbody>
