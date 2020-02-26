@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+  </head>
+  <body>
+    <header>
+			<img id="logo" alt="logo" src="images/nysl_logo.png" width="80">
+			<h1>Northside Youth Soccer League</h1>
+		</header>
+	  <nav>
+			<a id="home" href="index.html">Home</a>
+      <span></span>
+      <a class="b1" href="about.html">About NSYL</a>
+			<a class="b1" href="contact.html">Contact</a>
+			<a class="b2" href="gameinfo.html">Game Information</a>
+			<a class="b2" href="rules.html">Rules</a>
+      <a class="b2" href="registration.html">Registration</a>
+	 </nav>
+  <main>
+    <div class="flex-container">
+      <section>
+        <img id="impri" alt="azul" src="images/design1_image1.jpg">
+        <h2>Registration Form</h2>
+          <article>
+            <span></span>
+            <form class="text" action="show_data.html" method="post">
+              <fieldset>
+                <label>Player’s First Name:<input class="medium" type="text" name="T1" value=""></label>
+                <label>Last Name:<input class="medium" type="text" name="T2" value=""></label>
+              </fieldset>
+              <fieldset>
+                <label>Street Address:<input class="large" type="text" name="T3" value=""></label>
+              </fieldset>
+              <fieldset>
+                <label>City:<input class="medium" type="text" name="T4" value=""></label>
+                <label>Zip Code:<input class="medium" type="text" name="T5" value=""></label>
+              </fieldset>
+              <fieldset>
+                <label>Birth Date (mm/dd/yyyy):<input class="medium" type="text" name="T6" value=""></label>
+                <label>Gender:<input class="short" type="radio" name="T7" value="1">Female</label>
+                <label><input class="short" type="radio" name="T7" value="2">Male</label>
+                <label><input class="short" type="radio" name="T7" value="3">Other</label>
+              </fieldset>
+              <fieldset>
+                <label>Grade:</label>
+                <label>Pre-School<input class="short" type="radio" name="T8" value="1"></label>
+                <label>1st<input class="short" type="radio" name="T8" value="2"></label>
+                <label>2nd<input class="short" type="radio" name="T8" value="3"></label>
+                <label>3rd<input class="short" type="radio" name="T8" value="4"></label>
+                <label>4th<input class="short" type="radio" name="T8" value="5"></label>
+                <label>5th<input class="short" type="radio" name="T8" value="6"></label>
+              </fieldset>
+              <fieldset>
+                <label>Parent/Guardian:<input class="medium" type="text" name="T9" value=""></label>
+                <label>Contact Email:<input class="medium" type="email" placeholder="@.com" name="T10" value=""></label>
+              </fieldset>
+              <fieldset>
+                <h3>Which elementary schools do you live near?</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>First Closest School:</th>
+                        <th></th>
+                        <th>Second Closest School:</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T11" value="1">AJ Katzenmaier</label></td>
+                        <td><label><input class="short" type="radio" name="T11" value="2">Marjorie P Hart</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="1">AJ Katzenmaier</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="2">Marjorie P Hart</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T11" value="3">Greenbay</label></td>
+                        <td><label><input class="short" type="radio" name="T11" value="4">North Elementary</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="3">Greenbay</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="4">North Elementary</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T11" value="5">Howard A Yeager</label></td>
+                        <td><label><input class="short" type="radio" name="T11" value="6">South Elementary</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="5">Howard A Yeager</label></td>
+                        <td><label><input class="short" type="radio" name="T12" value="6">South Elementary</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </fieldset>
+              <fieldset>
+                <h3>What position(s) do you normally play? (check all that apply)</h3>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><label><input class="short" type="checkbox" name="T13" value="1">Forward</label></td>
+                        <td><label><input class="short" type="checkbox" name="T13" value="2">Midfield</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="checkbox" name="T13" value="3">Defense</label></td>
+                        <td><label><input class="short" type="checkbox" name="T13" value="4">Goalkeeper</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </fieldset>
+              <fieldset>
+                <h3>What position(s) do you want to play? (check all that apply)</h3>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><label><input class="short" type="checkbox" name="T14" value="1">Forward</label></td>
+                        <td><label><input class="short" type="checkbox" name="T14" value="2">Midfield</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="checkbox" name="T14" value="3">Defense</label></td>
+                        <td><label><input class="short" type="checkbox" name="T14" value="4">Goalkeeper</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </fieldset>
+              <fieldset>
+                <h3><label><input class="short" type="checkbox" name="T15" value="1">Already Have a Uniform</label></h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Jersey Size:</th>
+                        <th></th>
+                        <th>Shorts Size:</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T16" value="1">Youth Small</label></td>
+                        <td><label><input class="short" type="radio" name="T16" value="2">Medium</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="1">Youth Small</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="2">Medium</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T16" value="3">Youth Medium</label></td>
+                        <td><label><input class="short" type="radio" name="T16" value="4">Large</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="3">Youth Medium</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="4">Large</label></td>
+                      </tr>
+                      <tr>
+                        <td><label><input class="short" type="radio" name="T16" value="5">Youth Large</label></td>
+                        <td><label><input class="short" type="radio" name="T16" value="6">Extra-Large</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="5">Youth Large</label></td>
+                        <td><label><input class="short" type="radio" name="T17" value="6">Extra-Large</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </fieldset>
+              <h4><strong>Permission to Play</strong></h4>
+              <p>I, the parent or guardian of the minor registrant, agree that the registrant and I will abide by all the rules of the Northside Youth
+Soccer League (NYSL). In recognizing the possibility of physical injury associated with soccer and in consideration for the “League”
+accepting the registrant for its soccer programs and activities, I hereby release, discharge, and/or otherwise indemnify NYSL, their
+employees and associated personnel and volunteers, including the facilities used for practices and games, against any claim by or
+on behalf of the registrant as a result of the registrant’s participation in the program and/or being transported to or from NYSL
+sponsored activities, which transportation.
+By signing below, I hereby agree and authorize the above. In addition, by signing below, I also acknowledge that I have read the
+cancellation policy and agree to its terms. </p>
+              <fieldset>
+                  <label>Parent/Guardian Signature:<input class="final" type="text" name="T18" value=""></label>
+                  <label>Date:<input class="final" type="text" placeholder="mm/dd/yyyy" name="T19" value=""></label>
+              </fieldset>
+              <input class="b3" type="submit" name="send" value="Send">
+            </form>
+          </article>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
