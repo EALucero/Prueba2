@@ -1,0 +1,7 @@
+body{
+  width: 414px;
+}
+
+#canvas {
+  background: url("../images/fondo.jpg");
+}
